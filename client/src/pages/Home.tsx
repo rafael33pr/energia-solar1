@@ -195,6 +195,106 @@ export default function Home() {
         </div>
       </section>
 
+      {/* LUMA Crisis Awareness Section */}
+      <section className="py-20 bg-destructive/5 border-t-4 border-destructive/20 relative overflow-hidden">
+        <div className="absolute inset-0 grain-texture"></div>
+        
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Crisis Information */}
+            <div className="space-y-6">
+              <div className="inline-block">
+                <span className="px-4 py-2 bg-destructive/10 text-destructive rounded-full text-sm font-semibold border border-destructive/30">
+                  ⚠️ La Crisis Energética de Puerto Rico
+                </span>
+              </div>
+              
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                LUMA Está Fallando.
+                <span className="text-destructive"> Tu Solución Está Aquí.</span>
+              </h2>
+              
+              <div className="space-y-4 text-muted-foreground">
+                <p className="text-lg leading-relaxed">
+                  <strong className="text-foreground">31 de Diciembre de 2024:</strong> Casi el 90% de los clientes de LUMA quedaron sin electricidad en Año Nuevo. Este no fue un incidente aislado—es parte de una crisis sistémica.
+                </p>
+                
+                <p className="text-lg leading-relaxed">
+                  <strong className="text-foreground">La realidad:</strong> Puerto Rico depende del 94% de combustibles fósiles importados, paga las tarifas eléctricas más altas de cualquier estado estadounidense, y sufre apagones regulares que afectan hospitales, escuelas y negocios.
+                </p>
+                
+                <p className="text-lg leading-relaxed">
+                  <strong className="text-foreground">El problema empeorará:</strong> La infraestructura envejecida, dañada por huracanes, sigue deteriorándose. Esperar a que LUMA repare la red podría tomar años.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link href="/contacto">
+                  <Button size="lg" className="bg-destructive text-background hover:bg-destructive/90 shadow-lg text-base px-8 py-6">
+                    No Esperes Más: Consulta Gratuita
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
+                <Link href="/calculadora">
+                  <Button size="lg" variant="outline" className="text-base px-8 py-6 border-2">
+                    Calcula tu Ahorro
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Right: Stats and Benefits */}
+            <div className="space-y-6">
+              <div className="bg-card p-8 rounded-lg border-2 border-destructive/20 shadow-lg">
+                <h3 className="font-heading text-2xl font-bold text-foreground mb-6">¿Por Qué Solar es tu Mejor Opción?</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle2 className="w-6 h-6 text-secondary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Independencia Energética</h4>
+                      <p className="text-sm text-muted-foreground">Genera tu propia energía sin depender de LUMA</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle2 className="w-6 h-6 text-secondary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Protección Contra Apagones</h4>
+                      <p className="text-sm text-muted-foreground">Baterías de respaldo mantienen tu hogar funcionando</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle2 className="w-6 h-6 text-secondary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Ahorra Hasta 90%</h4>
+                      <p className="text-sm text-muted-foreground">Reduce tu factura de electricidad drásticamente</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <CheckCircle2 className="w-6 h-6 text-secondary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Solución Inmediata</h4>
+                      <p className="text-sm text-muted-foreground">Comienza a ahorrar en semanas, no años</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works Section */}
       <section className="py-20 bg-muted/50 relative overflow-hidden">
         <div className="absolute inset-0 grain-texture"></div>
