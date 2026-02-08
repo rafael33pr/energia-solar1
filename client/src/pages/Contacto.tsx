@@ -1,24 +1,15 @@
-/* Mediterranean Artisan Design - Contact Page
- * Lead generation form with warm, inviting design
+/**
+ * Contact Page - Lead Capture Optimized
+ * Multi-step form, urgency elements, trust signals
  */
 
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { toast } from "sonner";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
-import { useState } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Mail, Phone, MapPin, CheckCircle2, AlertTriangle, Clock, Users } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -26,291 +17,337 @@ export default function Contacto() {
     email: "",
     telefono: "",
     ciudad: "",
-    interes: "",
+    factura: "",
     mensaje: "",
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Form validation
-    if (!formData.nombre || !formData.email || !formData.telefono) {
-      toast.error("Por favor completa todos los campos obligatorios");
-      return;
-    }
-
-    // In a real application, this would send data to a backend
-    console.log("Form submitted:", formData);
-    
-    toast.success("¡Gracias por tu interés!", {
-      description: "Nos pondremos en contacto contigo en las próximas 24 horas.",
-    });
-
-    // Reset form
-    setFormData({
-      nombre: "",
-      email: "",
-      telefono: "",
-      ciudad: "",
-      interes: "",
-      mensaje: "",
-    });
+    setSubmitted(true);
+    setTimeout(() => {
+      setFormData({ nombre: "", email: "", telefono: "", ciudad: "", factura: "", mensaje: "" });
+      setSubmitted(false);
+    }, 3000);
   };
-
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      detail: "info@energiasolarfacil.com",
-      description: "Respuesta en 24 horas",
-    },
-    {
-      icon: Phone,
-      title: "Teléfono",
-      detail: "+1 (555) 123-4567",
-      description: "Lun - Vie: 9am - 6pm",
-    },
-    {
-      icon: MapPin,
-      title: "Ubicación",
-      detail: "Servicio en toda la región",
-      description: "Consulta disponibilidad",
-    },
-    {
-      icon: Clock,
-      title: "Horario",
-      detail: "Lunes a Viernes",
-      description: "9:00 AM - 6:00 PM",
-    },
-  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-background via-muted/30 to-background overflow-hidden">
-        <div className="absolute inset-0 grain-texture"></div>
-        
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block mb-6">
-              <span className="px-4 py-2 bg-accent/20 text-accent-foreground rounded-full text-sm font-medium border border-accent/30">
-                Estamos Aquí para Ayudarte
-              </span>
-            </div>
-            
-            <h1 className="font-display text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Comienza tu{" "}
-              <span className="text-primary">Viaje Solar</span>
+      {/* HERO SECTION */}
+      <section className="py-20 bg-gradient-to-br from-primary to-primary/90 text-background">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-5xl lg:text-6xl font-black mb-6">
+              Tu Consulta Gratuita te Espera
             </h1>
-            
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Solicita una consulta gratuita y sin compromiso. Nuestros expertos evaluarán tus necesidades y te mostrarán cuánto puedes ahorrar.
+            <p className="text-xl text-background/90 mb-8">
+              Completa el formulario y recibe una propuesta personalizada en 24 horas
             </p>
+            <div className="flex justify-center gap-6 text-sm font-semibold">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-yellow-300" />
+                <span>Sin compromiso</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="w-5 h-5 text-yellow-300" />
+                <span>Respuesta rápida</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5 text-yellow-300" />
+                <span>Expertos certificados</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form and Info */}
+      {/* MAIN CONTENT */}
       <section className="py-20 bg-background">
         <div className="container">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Contact Form */}
+            {/* FORM - Left Side (2 columns) */}
             <div className="lg:col-span-2">
-              <Card className="p-8 lg:p-12 border-2">
-                <h2 className="font-display text-3xl font-bold text-foreground mb-2">
-                  Solicita tu Consulta Gratuita
-                </h2>
-                <p className="text-muted-foreground mb-8">
-                  Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
-                </p>
+              <Card className="p-8 border-2">
+                {submitted ? (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle2 className="w-8 h-8 text-secondary" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">¡Consulta Enviada!</h3>
+                    <p className="text-muted-foreground mb-6">
+                      Recibirás una propuesta personalizada en tu email dentro de 24 horas.
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Mientras tanto, puedes usar nuestra calculadora para estimar tu ahorro.
+                    </p>
+                    <Link href="/calculadora">
+                      <Button className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90">
+                        Ir a la Calculadora
+                      </Button>
+                    </Link>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                      <p className="text-sm text-yellow-800 font-medium">
+                        ⚡ Oferta especial: Primeros 10 clientes reciben descuento de $2,000
+                      </p>
+                    </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="nombre" className="text-foreground font-medium">
+                    {/* Nombre */}
+                    <div>
+                      <label className="block text-sm font-bold text-foreground mb-2">
                         Nombre Completo *
-                      </Label>
-                      <Input
-                        id="nombre"
+                      </label>
+                      <input
                         type="text"
-                        placeholder="Juan Pérez"
+                        name="nombre"
                         value={formData.nombre}
-                        onChange={(e) => handleChange("nombre", e.target.value)}
+                        onChange={handleChange}
                         required
-                        className="border-2"
+                        className="w-full px-4 py-3 border-2 border-border rounded-lg focus:outline-none focus:border-primary bg-background"
+                        placeholder="Tu nombre"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-foreground font-medium">
+                    {/* Email */}
+                    <div>
+                      <label className="block text-sm font-bold text-foreground mb-2">
                         Email *
-                      </Label>
-                      <Input
-                        id="email"
+                      </label>
+                      <input
                         type="email"
-                        placeholder="juan@ejemplo.com"
+                        name="email"
                         value={formData.email}
-                        onChange={(e) => handleChange("email", e.target.value)}
+                        onChange={handleChange}
                         required
-                        className="border-2"
+                        className="w-full px-4 py-3 border-2 border-border rounded-lg focus:outline-none focus:border-primary bg-background"
+                        placeholder="tu@email.com"
                       />
                     </div>
-                  </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="telefono" className="text-foreground font-medium">
+                    {/* Teléfono */}
+                    <div>
+                      <label className="block text-sm font-bold text-foreground mb-2">
                         Teléfono *
-                      </Label>
-                      <Input
-                        id="telefono"
+                      </label>
+                      <input
                         type="tel"
-                        placeholder="+1 (555) 123-4567"
+                        name="telefono"
                         value={formData.telefono}
-                        onChange={(e) => handleChange("telefono", e.target.value)}
+                        onChange={handleChange}
                         required
-                        className="border-2"
+                        className="w-full px-4 py-3 border-2 border-border rounded-lg focus:outline-none focus:border-primary bg-background"
+                        placeholder="+1 (787) 555-0000"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="ciudad" className="text-foreground font-medium">
-                        Ciudad
-                      </Label>
-                      <Input
-                        id="ciudad"
-                        type="text"
-                        placeholder="Tu ciudad"
+                    {/* Ciudad */}
+                    <div>
+                      <label className="block text-sm font-bold text-foreground mb-2">
+                        Ciudad/Municipio *
+                      </label>
+                      <select
+                        name="ciudad"
                         value={formData.ciudad}
-                        onChange={(e) => handleChange("ciudad", e.target.value)}
-                        className="border-2"
-                      />
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border-2 border-border rounded-lg focus:outline-none focus:border-primary bg-background"
+                      >
+                        <option value="">Selecciona tu ciudad</option>
+                        <option value="San Juan">San Juan</option>
+                        <option value="Ponce">Ponce</option>
+                        <option value="Mayagüez">Mayagüez</option>
+                        <option value="Caguas">Caguas</option>
+                        <option value="Arecibo">Arecibo</option>
+                        <option value="Bayamón">Bayamón</option>
+                        <option value="Carolina">Carolina</option>
+                        <option value="Otra">Otra</option>
+                      </select>
                     </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="interes" className="text-foreground font-medium">
-                      ¿Qué te interesa?
-                    </Label>
-                    <Select
-                      value={formData.interes}
-                      onValueChange={(value) => handleChange("interes", value)}
+                    {/* Factura Eléctrica */}
+                    <div>
+                      <label className="block text-sm font-bold text-foreground mb-2">
+                        Factura Eléctrica Promedio Mensual *
+                      </label>
+                      <select
+                        name="factura"
+                        value={formData.factura}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border-2 border-border rounded-lg focus:outline-none focus:border-primary bg-background"
+                      >
+                        <option value="">¿Cuánto pagas mensualmente?</option>
+                        <option value="$100-$200">$100 - $200</option>
+                        <option value="$200-$300">$200 - $300</option>
+                        <option value="$300-$400">$300 - $400</option>
+                        <option value="$400-$500">$400 - $500</option>
+                        <option value="$500+">$500+</option>
+                      </select>
+                    </div>
+
+                    {/* Mensaje */}
+                    <div>
+                      <label className="block text-sm font-bold text-foreground mb-2">
+                        Preguntas o Comentarios
+                      </label>
+                      <textarea
+                        name="mensaje"
+                        value={formData.mensaje}
+                        onChange={handleChange}
+                        rows={4}
+                        className="w-full px-4 py-3 border-2 border-border rounded-lg focus:outline-none focus:border-primary bg-background resize-none"
+                        placeholder="Cuéntanos sobre tu situación..."
+                      ></textarea>
+                    </div>
+
+                    {/* Submit Button */}
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg text-base font-bold py-6 h-auto"
                     >
-                      <SelectTrigger className="border-2">
-                        <SelectValue placeholder="Selecciona una opción" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="paneles">Solo Paneles Solares</SelectItem>
-                        <SelectItem value="paneles-baterias">Paneles + Baterías</SelectItem>
-                        <SelectItem value="baterias">Solo Sistema de Baterías</SelectItem>
-                        <SelectItem value="consulta">Consulta General</SelectItem>
-                        <SelectItem value="otro">Otro</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                      Enviar Consulta Gratuita
+                    </Button>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="mensaje" className="text-foreground font-medium">
-                      Mensaje (Opcional)
-                    </Label>
-                    <Textarea
-                      id="mensaje"
-                      placeholder="Cuéntanos más sobre tus necesidades energéticas..."
-                      value={formData.mensaje}
-                      onChange={(e) => handleChange("mensaje", e.target.value)}
-                      rows={5}
-                      className="border-2 resize-none"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg text-base py-6"
-                  >
-                    Enviar Solicitud
-                    <Send className="ml-2 w-5 h-5" />
-                  </Button>
-
-                  <p className="text-sm text-muted-foreground text-center">
-                    Al enviar este formulario, aceptas que nos pongamos en contacto contigo. No compartimos tu información con terceros.
-                  </p>
-                </form>
+                    <p className="text-xs text-muted-foreground text-center">
+                      Protegemos tu privacidad. Nunca compartimos tu información.
+                    </p>
+                  </form>
+                )}
               </Card>
             </div>
 
-            {/* Contact Info Sidebar */}
+            {/* SIDEBAR - Right Side */}
             <div className="space-y-6">
-              <Card className="p-6 border-2 bg-gradient-to-br from-muted/50 to-background">
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-6">
-                  Información de Contacto
-                </h3>
-                
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <info.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <p className="font-heading font-semibold text-foreground mb-1">
-                          {info.title}
-                        </p>
-                        <p className="text-sm text-foreground mb-1">{info.detail}</p>
-                        <p className="text-xs text-muted-foreground">{info.description}</p>
-                      </div>
+              {/* Contact Info */}
+              <Card className="p-6 border-2 bg-muted/50">
+                <h3 className="text-xl font-bold text-foreground mb-6">Contacto Directo</h3>
+
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">Teléfono</p>
+                      <p className="font-bold text-foreground">+1 (787) 555-0000</p>
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="flex gap-4">
+                    <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">Email</p>
+                      <p className="font-bold text-foreground">info@energiasolarfacil.com</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">Ubicación</p>
+                      <p className="font-bold text-foreground">Puerto Rico</p>
+                    </div>
+                  </div>
                 </div>
               </Card>
 
-              <Card className="p-6 border-2 bg-primary text-primary-foreground">
-                <h3 className="font-heading text-xl font-semibold mb-3">
-                  ¿Por Qué Elegirnos?
-                </h3>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-lg">✓</span>
-                    <span>Consulta gratuita sin compromiso</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-lg">✓</span>
-                    <span>Más de 10 años de experiencia</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-lg">✓</span>
-                    <span>Instalación profesional certificada</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-lg">✓</span>
-                    <span>Garantías extendidas incluidas</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-lg">✓</span>
-                    <span>Financiamiento flexible disponible</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-lg">✓</span>
-                    <span>Soporte técnico de por vida</span>
-                  </li>
-                </ul>
+              {/* Why Choose Us */}
+              <Card className="p-6 border-2">
+                <h3 className="text-xl font-bold text-foreground mb-6">¿Por Qué Elegirnos?</h3>
+
+                <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Expertos Certificados</p>
+                      <p className="text-xs text-muted-foreground">Más de 10 años de experiencia</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Garantía 25 Años</p>
+                      <p className="text-xs text-muted-foreground">Protección total de tu inversión</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">500+ Clientes Felices</p>
+                      <p className="text-xs text-muted-foreground">Calificación 4.9★</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">Financiamiento Disponible</p>
+                      <p className="text-xs text-muted-foreground">Desde $0 inicial</p>
+                    </div>
+                  </div>
+                </div>
               </Card>
 
-              <Card className="p-6 border-2 bg-gradient-to-br from-accent/10 to-background">
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-3">
-                  Respuesta Rápida Garantizada
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Nos comprometemos a responder todas las solicitudes en menos de 24 horas. Tu tiempo es valioso, y estamos aquí para ayudarte a tomar la mejor decisión para tu hogar.
+              {/* Urgency Box */}
+              <Card className="p-6 border-2 bg-yellow-50 border-yellow-200">
+                <div className="flex gap-3 mb-4">
+                  <AlertTriangle className="w-6 h-6 text-yellow-600 flex-shrink-0" />
+                  <h3 className="font-bold text-yellow-900">Oferta Limitada</h3>
+                </div>
+                <p className="text-sm text-yellow-800 mb-4">
+                  Los primeros 10 clientes reciben descuento de $2,000 + baterías gratis.
+                </p>
+                <p className="text-xs text-yellow-700">
+                  ⏰ Válido solo este mes
                 </p>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="py-20 bg-muted/50">
+        <div className="container">
+          <h2 className="text-4xl font-black text-foreground mb-12 text-center">
+            Preguntas Frecuentes sobre la Consulta
+          </h2>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[
+              {
+                q: "¿Cuánto tiempo toma la consulta?",
+                a: "La consulta es completamente gratuita y toma 15-20 minutos. Analizamos tu factura actual y te mostramos exactamente cuánto puedes ahorrar.",
+              },
+              {
+                q: "¿Hay algún compromiso?",
+                a: "No. Es completamente sin compromiso. No hay obligación de comprar. Solo queremos mostrarte las opciones disponibles.",
+              },
+              {
+                q: "¿Cuándo recibiré la propuesta?",
+                a: "Dentro de 24 horas recibirás una propuesta personalizada por email con todos los detalles, costos y opciones de financiamiento.",
+              },
+              {
+                q: "¿Qué información necesitas?",
+                a: "Solo tu nombre, email, teléfono, ubicación y tu factura eléctrica promedio. Con eso podemos hacer un análisis completo.",
+              },
+            ].map((faq, index) => (
+              <Card key={index} className="p-6 border-2 hover:shadow-lg transition-all">
+                <h3 className="font-bold text-foreground mb-2">{faq.q}</h3>
+                <p className="text-muted-foreground text-sm">{faq.a}</p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
