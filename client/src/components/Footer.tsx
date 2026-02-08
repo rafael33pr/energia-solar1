@@ -19,14 +19,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/">
-              <a className="flex items-center gap-2 mb-4 group">
+              <div className="flex items-center gap-2 mb-4 group cursor-pointer">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
                   <Sun className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <span className="font-display text-xl font-semibold text-foreground">
                   Energía Solar Fácil
                 </span>
-              </a>
+              </div>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Transformamos hogares con energía solar limpia y confiable. Tu camino hacia la independencia energética comienza aquí.
@@ -39,37 +39,37 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="/">
-                  <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <span className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                     Inicio
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/beneficios">
-                  <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <span className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                     Beneficios
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/proceso">
-                  <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <span className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                     Proceso
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/calculadora">
-                  <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <span className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                     Calculadora
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/faq">
-                  <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <span className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                     Preguntas Frecuentes
-                  </a>
+                  </span>
                 </Link>
               </li>
             </ul>

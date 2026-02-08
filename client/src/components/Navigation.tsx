@@ -26,29 +26,29 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/">
-            <a className="flex items-center gap-2 group">
+            <div className="flex items-center gap-2 group cursor-pointer">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
                 <Sun className="w-6 h-6 text-primary-foreground" />
               </div>
               <span className="font-display text-2xl font-semibold text-foreground">
                 Energía Solar Fácil
               </span>
-            </a>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
-                <a
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                <span
+                  className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
                     location === link.href
                       ? "text-primary font-semibold"
                       : "text-foreground/80"
                   }`}
                 >
                   {link.label}
-                </a>
+                </span>
               </Link>
             ))}
             <Link href="/contacto">
@@ -79,8 +79,8 @@ export default function Navigation() {
           <div className="container py-4 space-y-4">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
-                <a
-                  className={`block py-2 text-base font-medium transition-colors ${
+                <span
+                  className={`block py-2 text-base font-medium transition-colors cursor-pointer ${
                     location === link.href
                       ? "text-primary font-semibold"
                       : "text-foreground/80 hover:text-primary"
@@ -88,7 +88,7 @@ export default function Navigation() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
-                </a>
+                </span>
               </Link>
             ))}
             <Link href="/contacto">
