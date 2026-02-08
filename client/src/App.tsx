@@ -10,6 +10,7 @@ import Proceso from "./pages/Proceso";
 import FAQ from "./pages/FAQ";
 import Contacto from "./pages/Contacto";
 import Calculadora from "./pages/Calculadora";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function Router() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <WhatsAppButton />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
