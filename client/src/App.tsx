@@ -9,6 +9,7 @@ import Beneficios from "./pages/Beneficios";
 import Proceso from "./pages/Proceso";
 import FAQ from "./pages/FAQ";
 import Contacto from "./pages/Contacto";
+import Calculadora from "./pages/Calculadora";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/beneficios" component={Beneficios} />
       <Route path="/proceso" component={Proceso} />
       <Route path="/faq" component={FAQ} />
+      <Route path="/calculadora" component={Calculadora} />
       <Route path="/contacto" component={Contacto} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}

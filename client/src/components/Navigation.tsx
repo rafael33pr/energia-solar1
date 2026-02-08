@@ -15,6 +15,7 @@ export default function Navigation() {
     { href: "/", label: "Inicio" },
     { href: "/beneficios", label: "Beneficios" },
     { href: "/proceso", label: "Proceso" },
+    { href: "/calculadora", label: "Calculadora" },
     { href: "/faq", label: "FAQ" },
     { href: "/contacto", label: "Contacto" },
   ];

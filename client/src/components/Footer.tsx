@@ -59,6 +59,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/calculadora">
+                  <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    Calculadora
+                  </a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/faq">
                   <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     Preguntas Frecuentes
