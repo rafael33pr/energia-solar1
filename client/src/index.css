@@ -55,33 +55,33 @@
 }
 
 :root {
-  /* Mediterranean earth tone palette */
-  --primary: oklch(0.52 0.12 35); /* Terracotta burnt #B85C38 */
-  --primary-foreground: oklch(0.98 0.01 65); /* Clay cream */
-  --secondary: oklch(0.55 0.08 125); /* Olive green #6B7F5F */
-  --secondary-foreground: oklch(0.98 0.01 65);
-  --accent: oklch(0.68 0.10 55); /* Toasted ochre #D89E6A */
-  --accent-foreground: oklch(0.25 0.02 35); /* Dark brown */
-  --muted: oklch(0.94 0.01 65); /* Light clay */
-  --muted-foreground: oklch(0.50 0.04 35);
+  /* Pura Energia inspired palette: Navy Blue, Lime Green, Yellow Gold */
+  --primary: oklch(0.28 0.15 260); /* Deep Navy Blue */
+  --primary-foreground: oklch(0.98 0.01 65); /* White */
+  --secondary: oklch(0.72 0.18 130); /* Bright Lime Green */
+  --secondary-foreground: oklch(0.28 0.15 260); /* Navy text on green */
+  --accent: oklch(0.88 0.20 80); /* Yellow/Gold */
+  --accent-foreground: oklch(0.28 0.15 260); /* Navy text on gold */
+  --muted: oklch(0.95 0.01 65); /* Light gray */
+  --muted-foreground: oklch(0.40 0.02 260); /* Medium gray */
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
   
-  --background: oklch(0.97 0.01 65); /* Cream clay #F4E8D8 */
-  --foreground: oklch(0.28 0.02 35); /* Chocolate brown #4A3728 */
-  --card: oklch(0.99 0.005 65);
-  --card-foreground: oklch(0.28 0.02 35);
+  --background: oklch(0.98 0.005 65); /* Off-white */
+  --foreground: oklch(0.25 0.02 260); /* Dark navy */
+  --card: oklch(0.99 0.005 65); /* White cards */
+  --card-foreground: oklch(0.25 0.02 260); /* Navy text */
   --popover: oklch(0.99 0.005 65);
-  --popover-foreground: oklch(0.28 0.02 35);
-  --border: oklch(0.85 0.02 45);
-  --input: oklch(0.88 0.02 45);
-  --ring: oklch(0.52 0.12 35);
+  --popover-foreground: oklch(0.25 0.02 260);
+  --border: oklch(0.90 0.01 65); /* Light border */
+  --input: oklch(0.92 0.01 65); /* Input background */
+  --ring: oklch(0.72 0.18 130); /* Green focus ring */
   
-  --chart-1: oklch(0.52 0.12 35); /* Terracotta */
-  --chart-2: oklch(0.68 0.10 55); /* Ochre */
-  --chart-3: oklch(0.55 0.08 125); /* Olive */
-  --chart-4: oklch(0.50 0.08 220); /* Earth blue */
-  --chart-5: oklch(0.40 0.05 35); /* Deep brown */
+  --chart-1: oklch(0.28 0.15 260); /* Navy */
+  --chart-2: oklch(0.72 0.18 130); /* Lime Green */
+  --chart-3: oklch(0.88 0.20 80); /* Yellow Gold */
+  --chart-4: oklch(0.50 0.08 220); /* Blue accent */
+  --chart-5: oklch(0.35 0.10 260); /* Dark navy */
   
   --radius: 0.5rem;
   
@@ -96,32 +96,32 @@
 }
 
 .dark {
-  --primary: oklch(0.58 0.12 35);
+  --primary: oklch(0.35 0.15 260); /* Lighter navy for dark mode */
   --primary-foreground: oklch(0.98 0.01 65);
-  --sidebar-primary: oklch(0.58 0.12 35);
+  --sidebar-primary: oklch(0.35 0.15 260);
   --sidebar-primary-foreground: oklch(0.98 0.01 65);
-  --background: oklch(0.20 0.02 35);
-  --foreground: oklch(0.92 0.01 65);
-  --card: oklch(0.25 0.02 35);
+  --background: oklch(0.15 0.02 260); /* Very dark navy */
+  --foreground: oklch(0.92 0.01 65); /* Off-white text */
+  --card: oklch(0.22 0.02 260); /* Dark navy cards */
   --card-foreground: oklch(0.92 0.01 65);
-  --popover: oklch(0.25 0.02 35);
+  --popover: oklch(0.22 0.02 260);
   --popover-foreground: oklch(0.92 0.01 65);
-  --secondary: oklch(0.30 0.04 125);
+  --secondary: oklch(0.72 0.18 130); /* Bright lime green */
   --secondary-foreground: oklch(0.92 0.01 65);
-  --muted: oklch(0.30 0.02 35);
+  --muted: oklch(0.30 0.02 260);
   --muted-foreground: oklch(0.70 0.02 65);
-  --accent: oklch(0.35 0.04 55);
-  --accent-foreground: oklch(0.92 0.01 65);
+  --accent: oklch(0.88 0.20 80); /* Yellow gold */
+  --accent-foreground: oklch(0.15 0.02 260);
   --destructive: oklch(0.60 0.20 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.35 0.02 35);
-  --input: oklch(0.35 0.02 35);
-  --ring: oklch(0.58 0.12 35);
-  --chart-1: oklch(0.58 0.12 35);
-  --chart-2: oklch(0.68 0.10 55);
-  --chart-3: oklch(0.55 0.08 125);
+  --border: oklch(0.30 0.02 260);
+  --input: oklch(0.28 0.02 260);
+  --ring: oklch(0.72 0.18 130);
+  --chart-1: oklch(0.35 0.15 260);
+  --chart-2: oklch(0.72 0.18 130);
+  --chart-3: oklch(0.88 0.20 80);
   --chart-4: oklch(0.50 0.08 220);
-  --chart-5: oklch(0.40 0.05 35);
+  --chart-5: oklch(0.40 0.10 260);
   --sidebar: oklch(0.25 0.02 35);
   --sidebar-foreground: oklch(0.92 0.01 65);
   --sidebar-accent: oklch(0.30 0.02 35);
